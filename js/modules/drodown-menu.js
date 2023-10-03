@@ -10,7 +10,7 @@ export default function initDropDownMenu() {
 
   function handleClick(e) {
     e.preventDefault();
-    this.classList.add("ativo");
+    this.classList.toggle("ativo");
 
     outSideClick(this, () => {
       this.classList.remove("ativo");

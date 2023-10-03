@@ -1,17 +1,22 @@
 [data-dropdown] {
   transition: all 800ms;
   position: relative;
-  display: flex;
+  display: block;
   align-items: center;
+  padding-right: 10px;
 }
 
 [data-dropdown]::after {
+  display: inline-block;
   content: "";
   width: 20px;
   height: 18px;
   background: url("../img/arrow-bottom.svg") center;
   transition: transform 300ms;
   cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 0;
 }
 
 .dropdown-menu {
