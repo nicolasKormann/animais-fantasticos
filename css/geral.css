@@ -170,6 +170,20 @@ header li a {
   background: #fb5;
 }
 
+.contato li.aberto::before {
+  width: 20px;
+  height: 20px;
+  background: rgb(99, 255, 85);
+  border-radius: 50%;
+}
+
+.contato li.fechado::before {
+  width: 20px;
+  height: 20px;
+  background: rgb(255, 91, 85);
+  border-radius: 50%;
+}
+
 footer {
   background: #ffbb55;
   grid-column: 3/-1;
