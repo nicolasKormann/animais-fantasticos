@@ -4,15 +4,19 @@ export default function initFetchAnimais() {
   async function fetchAnimais() {
     const url = "../../animais.json";
 
-    const animaisResponse = await fetch(url);
-    const animaisJson = await animaisResponse.json();
+    try {
+      const animaisResponse = await fetch(url);
+      const animaisJson = await animaisResponse.json();
 
-    animaisJson.map((animal) => {
-      const especie = animal.especie;
-      const total = animal.total;
-      createAnimal(especie, total);
-    });
-    initAnimaNumeros();
+      animaisJson.map((animal) => {
+        const especie = animal.especie;
+        const total = animal.total;
+        createAnimal(especie, total);
+      });
+      initAnimaNumeros();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   function createAnimal(especie, total) {
