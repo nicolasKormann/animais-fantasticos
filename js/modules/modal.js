@@ -5,12 +5,12 @@ export function initModal() {
 
   if (modalContainer && abrirModal) {
     abrirModal.addEventListener("click", handleClickShowModal);
+  }
 
-    function handleClickShowModal(event) {
-      event.preventDefault();
+  function handleClickShowModal(event) {
+    event.preventDefault();
 
-      modalContainer.classList.add("ativo");
-    }
+    modalContainer.classList.add("ativo");
   }
 }
 
@@ -20,14 +20,14 @@ export function exitModal() {
   if (modalContainer && fecharModal) {
     fecharModal.addEventListener("click", handleCkickCloseModal);
 
-    function handleCkickCloseModal() {
-      modalContainer.classList.remove("ativo");
-    }
-
     modalContainer.addEventListener("click", clickOutModal);
+  }
 
-    function clickOutModal(event) {
-      event.target === this ? handleCkickCloseModal() : "";
-    }
+  function handleCkickCloseModal() {
+    modalContainer.classList.remove("ativo");
+  }
+
+  function clickOutModal(event) {
+    event.target === this ? handleCkickCloseModal() : "";
   }
 }

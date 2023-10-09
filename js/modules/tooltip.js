@@ -15,7 +15,7 @@ export default function initToolTip() {
     this.addEventListener("mousemove", onMouseMove);
   }
 
-  function createTooltipBox(element, event) {
+  function createTooltipBox(element) {
     const tooltipBox = document.createElement("div");
     const text = element.getAttribute("aria-label");
     tooltipBox.classList.add("tooltip");

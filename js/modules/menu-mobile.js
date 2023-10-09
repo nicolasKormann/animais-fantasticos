@@ -6,14 +6,14 @@ export default function initMenuMobile() {
 
   if (menuButton) {
     menuButton.addEventListener("click", openMenu);
+  }
 
-    function openMenu() {
-      menuList.classList.toggle("ativo");
-      menuButton.classList.toggle("ativo");
-      outSideClick(menuList, () => {
-        menuList.classList.remove("ativo");
-        menuButton.classList.remove("ativo");
-      });
-    }
+  function openMenu() {
+    menuList.classList.toggle("ativo");
+    menuButton.classList.toggle("ativo");
+    outSideClick(menuList, () => {
+      menuList.classList.remove("ativo");
+      menuButton.classList.remove("ativo");
+    });
   }
 }
