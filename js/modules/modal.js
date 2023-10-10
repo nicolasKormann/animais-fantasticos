@@ -1,33 +1,42 @@
-const modalContainer = document.querySelector('[data-modal="container"]');
-
-export function initModal() {
-  const abrirModal = document.querySelector('[data-modal="abrir"]');
-
-  if (modalContainer && abrirModal) {
-    abrirModal.addEventListener("click", handleClickShowModal);
+export default class initModal {
+  constructor(abrirModal, fecharModal, modalContainer) {
+    this.abrirModal = document.querySelector(abrirModal);
+    this.fecharModal = document.querySelector(fecharModal);
+    this.modalContainer = document.querySelector(modalContainer);
   }
 
-  function handleClickShowModal(event) {
+  handleClickShowModal(event) {
     event.preventDefault();
-
-    modalContainer.classList.add("ativo");
-  }
-}
-
-export function exitModal() {
-  const fecharModal = document.querySelector('[data-modal="fechar"]');
-
-  if (modalContainer && fecharModal) {
-    fecharModal.addEventListener("click", handleCkickCloseModal);
-
-    modalContainer.addEventListener("click", clickOutModal);
+    this.modalContainer.classList.add("ativo");
+    document.body.classList.add("ativo");
   }
 
-  function handleCkickCloseModal() {
-    modalContainer.classList.remove("ativo");
+  handleCkickCloseModal() {
+    this.modalContainer.classList.remove("ativo");
+    document.body.classList.remove("ativo");
   }
 
-  function clickOutModal(event) {
-    event.target === this ? handleCkickCloseModal() : "";
+  clickOutModal(event) {
+    event.target === this.modalContainer ? this.handleCkickCloseModal() : "";
+    document.body.classList.remove("ativo");
+  }
+
+  init() {
+    if (this.modalContainer && this.abrirModal) {
+      this.abrirModal.addEventListener("click", () =>
+        this.handleClickShowModal(event)
+      );
+    }
+  }
+
+  exitModal() {
+    if (this.modalContainer && this.fecharModal) {
+      this.fecharModal.addEventListener("click", () =>
+        this.handleCkickCloseModal()
+      );
+      this.modalContainer.addEventListener("click", () =>
+        this.clickOutModal(event)
+      );
+    }
   }
 }

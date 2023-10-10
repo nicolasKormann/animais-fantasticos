@@ -40,6 +40,10 @@
   animation: modal 600ms forwards;
 }
 
+body.ativo {
+  overflow: hidden;
+}
+
 .fechar {
   position: absolute;
   height: 50px;
