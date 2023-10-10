@@ -1,19 +1,26 @@
-export default function initAccordion() {
-  const accordionQuestions = document.querySelectorAll(
-    "[data-anime='accordion'] dt"
-  );
-
-  function handleClickShowResponse() {
-    this.classList.toggle("ativo");
-    this.nextElementSibling.classList.toggle("ativo");
+export default class Accordion {
+  constructor(list) {
+    this.accordionQuestions = document.querySelectorAll(list);
+    this.activeClass = "ativo";
   }
 
-  if (accordionQuestions.length) {
-    accordionQuestions[0].classList.add("ativo");
-    accordionQuestions[0].nextElementSibling.classList.add("ativo");
+  handleClickShowResponse(question) {
+    question.classList.toggle(this.activeClass);
+    question.nextElementSibling.classList.toggle(this.activeClass);
+  }
 
-    accordionQuestions.forEach((question) => {
-      question.addEventListener("click", handleClickShowResponse);
+  addAccordionEvent() {
+    this.accordionQuestions.forEach((question) => {
+      question.addEventListener("click", () =>
+        this.handleClickShowResponse(question)
+      );
     });
+  }
+
+  init() {
+    if (this.accordionQuestions.length) {
+      this.handleClickShowResponse(this.accordionQuestions[0]);
+      this.addAccordionEvent();
+    }
   }
 }
