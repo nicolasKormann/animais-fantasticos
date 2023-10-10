@@ -1,13 +1,9 @@
-export default function initScrollSmooth() {
-  const linksInternos = document.querySelectorAll(
-    "[data-menu='suave'] a[href^='#']"
-  );
+export default class ScrollSmooth {
+  constructor(links) {
+    this.linksInternos = document.querySelectorAll(links);
+  }
 
-  linksInternos.forEach((link) => {
-    link.addEventListener("click", scrollToSection);
-  });
-
-  function scrollToSection(event) {
+  scrollToSection(event) {
     event.preventDefault();
     const hashItem = this.hash;
     const section = document.querySelector(hashItem);
@@ -16,10 +12,22 @@ export default function initScrollSmooth() {
     //   block: "start",
     //   behavior: "smooth",
     // });
-
     window.scrollTo({
       top: section.offsetTop,
       behavior: "smooth",
     });
+  }
+
+  addLinkEvent() {
+    this.linksInternos.forEach((link) => {
+      link.addEventListener("click", this.scrollToSection);
+    });
+  }
+
+  init() {
+    if (this.linksInternos.length) {
+      this.addLinkEvent();
+    }
+    return this;
   }
 }

@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack --mode development"
+    "dev": "webpack --mode development --watch"
   },
   "repository": "git@github.com:nicolasKormann/animais-fantasticos.git",
   "author": "Nícolas Kormann <nicolas.kormann@proton.me>",
