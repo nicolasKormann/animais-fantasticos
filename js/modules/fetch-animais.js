@@ -2,7 +2,7 @@ import initAnimaNumeros from "./anima-numeros.js";
 
 export default function initFetchAnimais() {
   async function fetchAnimais() {
-    const url = "../../animais.json";
+    const url = "./animais.json";
 
     try {
       const animaisResponse = await fetch(url);

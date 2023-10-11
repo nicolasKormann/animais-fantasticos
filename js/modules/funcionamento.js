@@ -5,7 +5,7 @@ export default function initFuncionamento() {
 
   const dataAgora = new Date();
   const diaAgora = dataAgora.getDay();
-  const horaAgora = dataAgora.getHours();
+  const horaAgora = dataAgora.getUTCHours() - 3;
 
   if (
     diasSemana.includes(diaAgora) &&
