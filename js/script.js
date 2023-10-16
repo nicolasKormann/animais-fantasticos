@@ -9,6 +9,7 @@ import initMenuMobile from "./modules/menu-mobile.js";
 import initFuncionamento from "./modules/funcionamento.js";
 import initFetchAnimais from "./modules/fetch-animais.js";
 import initFetBtc from "./modules/fetch-btc.js";
+import SlideNav from "./modules/slide.js";
 
 const scrollSmooth = new ScrollSmooth("[data-menu='suave'] a[href^='#']");
 scrollSmooth.init();
@@ -37,3 +38,7 @@ initMenuMobile();
 initFuncionamento();
 initFetchAnimais();
 initFetBtc();
+
+const slide = new SlideNav(".slide", ".wrapper");
+slide.init();
+slide.addControl(".custom-controls");
